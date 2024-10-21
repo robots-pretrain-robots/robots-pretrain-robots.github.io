@@ -225,8 +225,79 @@
   </div>
 </section>
 
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column">
 
+        <div class="content">
+          <h2 class="title is-3">Manipulation-Centricity of Representations</h2>
+          <p>
+            At first, we take an initial step by visualizing these representations in simulated task: we use Gradient-weighted Class Activation Mapping (Grad-CAM), a widely-adopted network visualization technique in computer vision,to analyze the features of existing representations. Grad-CAM highlights the regions of an input image that are most influential in the model's decision-making process. Interestingly, we observe that a representation’s downstream task performance appears to correlate with its ability to capture manipulation-relevant regions.
+          </p> 
+          <p>
+            To quantify this metric, we compute the similarity between the regions highlighted by Grad-CAM and the ground truth regions corresponding to the end-effector and task-relevant objects. The ground truth is generated using the powerful segmentation model SAM2.  
+            </p>
+            <p>
+              Manipulation centricity is then measured by averaging the Jaccard Index, a widely-used similarity metric in image segmentation, between the binarized Grad-CAM outputs and the ground truth segmentation masks over the entire evaluation dataset.
+            </p>
+       
 
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-three-fifths has-text-centered">
+            <img src="./static/images/metric_calc.png"
+                 class="interpolation-image"
+                 alt="Interpolate start reference image."/>
+            <p>Measurement of manipulation centricity</p>
+          </div>
+        </div>
+
+        <div class="content">
+          <h3 class="title is-4">Key findings</h3>
+            <p>
+              The aggregate results reveal a strong correlation between manipulation centricity and downstream task performance, with a Pearson correlation coefficient of $R=0.93$.
+              </p>
+              <div class="columns is-centered has-text-centered">
+                <div class="column is-three-fifths has-text-centered">
+                  <img src="./static/images/correlation.png"
+                       class="interpolation-image"
+                       alt="Interpolate start reference image."/>
+                  <p>Correlation between Success rate and Manipulation centricity</p>
+                </div>
+        </div>
+
+        </div>
+      </div>
+    </div>
+
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column">
+
+        <div class="content">
+          <h2 class="title is-3">Simulation Results</h2>
+          <p>
+            RPM delivers substantial downstream performance gains compared to the strongest baseline methods across all selected domains.
+          </p>
+
+          <div class="columns is-centered has-text-centered">
+            <div class="column is-three-fifths has-text-centered">
+              <img src="./static/images/mainsim_result241001.png"
+                   class="interpolation-image"
+                   alt="Interpolate start reference image."/>
+              <p>Simulation results</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div> 
+
+  </section>
 <!-- <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
