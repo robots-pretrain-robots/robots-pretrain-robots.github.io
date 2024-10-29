@@ -1,0 +1,450 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Robots Pre-Train Robots: Manipulation-Centric Robotic Representation from Large-Scale Robot Dataset</title>
+
+  <!-- <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet"> -->
+
+  <!-- <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script> -->
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+
+  <link rel="icon" href="./static/images/favicon.png">
+
+
+
+  <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <meta property="og:image:width" content="1600" />
+  <meta property="og:image:height" content="900" />
+
+</head>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-L7VEDHS6G8');
+</script>
+
+
+<body>
+    <section class="hero">
+      <div class="hero-body no-bottom-padding">
+        <div class="container">
+          <div class="columns is-centered">
+            <div class="column has-text-centered">
+              <h1 class="title is-1 publication-title">🧸Robots Pre-Train Robots: Manipulation-Centric Robotic Representation from Large-Scale Robot Dataset</h1>
+              <div class="is-size-5 publication-authors">
+                <span class="author-block">
+                  <a target="_blank" href="https://luccachiang.github.io">Guangqi Jiang</a><sup>*</sup><sup>1</sup>&nbsp;&nbsp;&nbsp;
+                  <a target="_blank" href="https://guangnianyuji.github.io/">Yifei Sun</a><sup>*</sup><sup>2</sup>&nbsp;&nbsp;&nbsp;
+                  <a target="_blank" href="https://taohuang13.github.io">Tao Huang</a><sup>*</sup><sup>3</sup>&nbsp;&nbsp;&nbsp;
+                  <a target="_blank" href="https://github.com/xierhill">Huanyu Li</a><sup>3</sup>&nbsp;&nbsp;&nbsp;
+                  <br>
+                  <a target="_blank" href="https://cheryyunl.github.io">Yongyuan Liang</a><sup>&dagger;</sup><sup>4</sup>&nbsp;&nbsp;&nbsp;
+                  <a target="_blank" href="http://hxu.rocks">Huazhe Xu</a><sup>&dagger;</sup><sup>5</sup>&nbsp;&nbsp;&nbsp;
+                  <br /><sup>1</sup>UC San Diego&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<sup>2</sup>Tongji University&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<sup>3</sup>Shanghai Jiao Tong University
+                  <br /><sup>4</sup>University of Maryland&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<sup>5</sup>Tsinghua University
+                  <br>&ast; Equal contribution.    &dagger; Equal advising.
+                </span>
+              </div>
+              <div class="column has-text-centered">
+                <div class="publication-links">
+                  <!-- PDF Link. -->
+                  <!-- <span class="link-block">
+                    <a href="https://arxiv.org/abs/2406.00439"
+                       class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon">
+                          <i class="fas fa-file-pdf"></i>
+                      </span>
+                      <span>Paper</span>
+                    </a>
+                  </span> -->
+  
+                  <!-- arXiv Link. -->
+                  <span class="link-block">
+                    <a target="_blank" href="https://arxiv.org/abs/2406.00439"
+                       class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon">
+                          <i class="ai ai-arxiv"></i>
+                      </span>
+                      <span>arXiv</span>
+                    </a>
+                  </span>
+                  <span class="link-block">
+                    <a href="https://github.com/luccachiang/robots-pretrain-robots"
+                       class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon">
+                          <i class="fab fa-github"></i>
+                      </span>
+                      <span>Code</span>
+                      </a>
+                    </span>
+                    <!-- Dataset Link. -->
+                    <span class="link-block">
+                      <a href="https://huggingface.co/GqJiang/robots-pretrain-robots"
+                         class="external-link button is-normal is-rounded is-dark">
+                        <span class="icon">
+                            <img src="static/images/hf_icon.svg" />
+                        </span>
+                        <span>Models</span>
+                        </a>
+                      </span>
+
+                  <span class="link-block">
+                    <a target="_blank" href=""
+                       class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon">
+                          <i class="fab fa-twitter"></i>
+                      </span>
+                      <span>Twitter</span>
+                    </a>
+                  </span>
+                </div>
+    
+              </div>
+              </div>
+    
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+
+
+
+  <section class="hero teaser">
+    <div class="container is-max-desktop">
+      <div class="hero-body">
+        <div align="center">
+          <img src="./static/images/overview.png" alt="Image description" width="100%">
+        </div>  
+        <br> 
+        <!-- <h2 class="subtitle has-text-centered"> -->
+        <h2 class="subtitle">
+          <!-- Given a scene, our approach (VRB) learns  <strong> actionable representations </strong> for robot learning. VRB predicts contact points and a post-contact trajectory learned from <strong> human videos </strong>.  -->
+          <strong>Manipulation Centricity</strong> measures how well pre-trained visual representations correlate with downstream manipulation tasks, serving as a strong predictor of task success rates. Building on this insight, Manipulation Centric Representation (<strong>MCR</strong>) enhances manipulation centricity by pre-training visual encoders with large-scale robotic data.
+        </h2>
+        
+      </div>
+  
+    </div>
+  </section>
+
+  <section class="hero is-light is-small">
+    <div class="hero-body">
+      <div class="container is-two-thirds">
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-two-thirds">
+            <h2 class="title is-3">Abstract</h2>
+          </div>
+      </div>
+    
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-two-thirds ">
+          <div class="content has-text-justified">
+            The pre-training of visual representations has enhanced the efficiency of robot learning. 
+            Due to the lack of large-scale in-domain robotic datasets, prior works utilize in-the-wild human videos to pre-train robotic visual representation. 
+            Despite their promising results, representations from human videos are inevitably subject to distribution shifts and lack the dynamics information crucial for task completion. 
+            We first evaluate various pre-trained representations in terms of their correlation to the downstream robotic manipulation tasks (i.e., manipulation centricity). 
+            Interestingly, we find that the "manipulation centricity" is a strong indicator of success rates when applied to downstream tasks.
+            Drawing from these findings, we propose <strong>M</strong>anipulation <strong>C</strong>entric <strong>R</strong>epresentation (<strong>MCR</strong>), a foundation representation learning framework capturing both visual features and the dynamics information such as actions and proprioceptions of manipulation tasks to improve manipulation centricity. 
+            Specifically, we pre-train a visual encoder on the DROID robotic dataset and leverage motion-relevant data such as robot proprioceptive states and actions. 
+            We introduce a novel contrastive loss that aligns visual observations with the robot's proprioceptive state-action dynamics, combined with an action prediction loss and a time contrastive loss during pre-training.
+            Empirical results across four simulation domains with 20 robotic manipulation tasks demonstrate that <strong>MCR</strong> outperforms the strongest baseline by <strong>14.8%</strong>. Additionally, <strong>MCR</strong> boosts the success rate in three real-world manipulation tasks by <strong>76.9%</strong>.
+          </div>
+        </div>
+        </div>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section body">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-3" style="text-align: center; padding-bottom: 10px;">Manipulation Centricity</h2>
+          <!-- <h2 class="subtitle is-4" style="text-align: center;">Defining Visual Affordances</h2> -->
+          <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths ">
+          <div class="content has-text-justified">
+            
+            <tr>
+              <td>
+                <div class="row">
+                  <div class="col">
+                    <img src="./static/images/metric.png" alt="Image description" width="100%">
+                  </div>
+                </div>
+                <div class="columns is-centered has-text-centered">
+                  <div class="column">
+                  <div class="content has-text-justified interpolation-panel">
+                      <p style="text-align: center;font-size: 18px">Through analyzing feature similarities between Grad-CAM visualizations and SAM2-identified ground truth regions, <strong>Manipulation Centricity</strong> quantifies a representation's focus on task-relevant areas, predicting downstream performance.</p>
+                  </div>
+                </div>
+              </div>
+              </td>
+            </tr>
+          </div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section body">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-3" style="text-align: center; padding-bottom: 10px;">Real-world Manipulation Benchmark</h2>
+          <!-- <h2 class="subtitle is-4" style="text-align: center;">Defining Visual Affordances</h2> -->
+          <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths ">
+          <div class="content has-text-justified">
+            <tr>
+              <td>
+                <div class="row">
+                  <div class="col">
+                    <video class="center" playsinline autoplay loop muted src="./static/videos/Lift.mp4" width="100%" style="border-radius:10px;"></video>
+                    <center>Lift up (1x speed)</center>
+                    <br>
+                  </div>
+                  <div class="col">
+                    <video class="center" playsinline autoplay loop muted src="./static/videos/Sweep.mp4" width="100%" style="border-radius:10px;"></video>
+                    <center>Sweep (1x speed)</center>
+                    <br>
+                  </div>
+                  <div class="col">
+                    <video class="center" playsinline autoplay loop muted src="./static/videos/Rearrange.mp4" width="100%" style="border-radius:10px;"></video>
+                    <center>Rearrange (1x speed)</center>
+                    <br>
+                  </div>
+                </div>
+                <div class="row" style="display: flex; align-items: stretch;">
+                    <div class="col" style="flex: 1; display: flex; flex-direction: column;">
+                      <div style="flex: 1; display: flex; align-items: center;">
+                        <img class="center" src="./static/images/real_results.png" style="width: 100%; height: 200px; object-fit: contain;">
+                      </div>
+                      <div style="text-align: center; margin-top: 10px;">
+                        <strong>MCR</strong> consistently outperforms baselines <br> across all real-world task
+                      </div>
+                    </div>
+                    <div class="col" style="flex: 1; display: flex; flex-direction: column;">
+                      <div style="flex: 1; display: flex; align-items: center;">
+                        <img class="center" src="./static/images/grad_real.png" style="width: 100%; height: 250px; object-fit: contain; border-radius: 10px;">
+                      </div>
+                      <div style="text-align: center; margin-top: 10px;">
+                        Grad-CAM visualization on Rearrange. <br><strong>MCR</strong> is with best manipulation centricty.
+                      </div>
+                    </div>
+                  </div>
+              </td>
+            </tr>
+
+            <br>
+            <h2 class="subtitle is-3" style="text-align: center;">Simulation Benchmark</h2>
+
+            <div class="video-grid">
+                <video playsinline autoplay loop muted src="./static/videos/sim/assembly.mp4"></video>
+                <video playsinline autoplay loop muted src="./static/videos/sim/bin-picking.mp4"></video>
+                <video playsinline autoplay loop muted src="./static/videos/sim/button-press.mp4"></video>
+                <video playsinline autoplay loop muted src="./static/videos/sim/disassemble.mp4"></video>
+                <video playsinline autoplay loop muted src="./static/videos/sim/drawer-open.mp4"></video>
+                <video playsinline autoplay loop muted src="./static/videos/sim/hammer.mp4"></video>
+                <video playsinline autoplay loop muted src="./static/videos/sim/faucet.mp4"></video>
+            </div>
+            <br>
+            <div class="video-grid">
+                <video playsinline autoplay loop muted src="./static/videos/sim/stick-pull.mp4"></video>
+                <video playsinline autoplay loop muted src="./static/videos/sim/shelf-place.mp4"></video>
+                <video playsinline autoplay loop muted src="./static/videos/sim/stick-push.mp4"></video>
+                <video playsinline autoplay loop muted src="./static/videos/sim/pick-place-wall.mp4"></video>
+                <video playsinline autoplay loop muted src="./static/videos/sim/bucket.mp4"></video>
+                <video playsinline autoplay loop muted src="./static/videos/sim/laptop.mp4"></video>
+                <video playsinline autoplay loop muted src="./static/videos/sim/toilet.mp4"></video>
+            </div>
+            <br>
+            <div class="video-grid">
+                <video playsinline autoplay loop muted src="./static/videos/sim/robocasa_CloseDrawer.mp4"></video>
+                <video playsinline autoplay loop muted src="./static/videos/sim/robocasa_CoffeePressButton.mp4"></video>
+                <video playsinline autoplay loop muted src="./static/videos/sim/robocasa_OpenSingleDoor.mp4"></video>
+                <video playsinline autoplay loop muted src="./static/videos/sim/robomimic_can.mp4"></video>
+                <video playsinline autoplay loop muted src="./static/videos/sim/robomimic_square.mp4"></video>
+                <video playsinline autoplay loop muted src="./static/videos/sim/robomimic_lift.mp4"></video>
+                <video playsinline autoplay loop muted src=""></video>
+            </div>
+            <style>
+            .video-grid {
+                display: grid;
+                grid-template-columns: repeat(7, 1fr);
+                gap: 7px;
+                width: 100%;
+            }
+            
+            .video-grid video {
+                width: 100%;
+                height: auto;
+            }
+            </style>
+          </div>
+          <br>
+          <div class="row">
+            <div class="col">
+              <img src="./static/images/grad_sim.png" alt="Image description" width="100%">
+            </div>
+          </div>
+          <p><strong>Grad-CAM visualization for the Square task from Robomimic and the Pick Place Wall task from MetaWorld</strong></p>
+          <br>
+          <div class="row">
+            <div class="col">
+              <img src="./static/images/sim.png" alt="Image description" width="100%">
+            </div>
+          </div>
+          <p><strong>4 Domains: MetaWorld, DexArt, Robomimic, RoboCasa; 20 Tasks</strong></p>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section body">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-3" style="text-align: center; padding-bottom: 10px;">Findings in robotic dataset</h2>
+          <!-- <h2 class="subtitle is-4" style="text-align: center;">Defining Visual Affordances</h2> -->
+          <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths ">
+          <div class="content has-text-justified">
+            <tr>
+              <td>
+                <div class="row" style="display: flex; align-items: stretch;">
+                    <div class="col" style="flex: 1; display: flex; flex-direction: column;">
+                      <div style="flex: 1; display: flex; align-items: center;">
+                        <img class="center" src="./static/images/dataset1.png" style="width: 100%; height: 300px; object-fit: contain;">
+                      </div>
+                      <div style="text-align: center; margin-top: 10px;">
+                        <strong>Larger dataset, better performance. </strong>
+                      </div>
+                    </div>
+                    <div class="col" style="flex: 1; display: flex; flex-direction: column;">
+                      <div style="flex: 1; display: flex; align-items: center;">
+                        <img class="center" src="./static/images/dataset2.png" style="width: 100%; height: 300px; object-fit: contain; border-radius: 10px;">
+                      </div>
+                      <div style="text-align: center; margin-top: 10px;">
+                        <strong>Benefits for tasks with less embodiment gap. </strong>
+                      </div>
+                    </div>
+                  </div>
+              </td>
+            </tr>
+          </div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section body">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-3" style="text-align: center; padding-bottom: 10px;">Feature Analysis</h2>
+          <!-- <h2 class="subtitle is-4" style="text-align: center;">Defining Visual Affordances</h2> -->
+          <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths ">
+          <div class="content has-text-justified">
+            
+            <tr>
+              <td>
+                <div class="row">
+                  <div class="col">
+                    <img src="./static/images/tsne.png" alt="Image description" width="100%">
+                  </div>
+                </div>
+                <br>
+                <div class="columns is-centered has-text-centered">
+                  <div class="column">
+                  <div class="content has-text-justified interpolation-panel">
+                      <p style="text-align: center;font-size: 18px">We do t-SNE visualization on 10 simulation tasks from MetaWorld and 3 real
+                        robot tasks. Each dot represents an image frame and each color indicates a task. The results demonstrate that
+                        (1) our representation has the best clustering ability and (2) robot data is helpful to robotic representation.</p>
+                  </div>
+                </div>
+              </div>
+              </td>
+            </tr>
+          </div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="titile">BibTeX</h2>
+      If you find the project helpful for your research, please consider citing our paper:
+      <pre><code>@inproceedings{jiang2024robots,
+        title={Robots Pre-Train Robots: Manipulation-Centric Robotic Representation from Large-Scale Robot Dataset},
+        author={Jiang, Guangqi and Sun, Yifei and Huang, Tao and Li, Huanyu and Liang, Yongyuan and Xu, Huazhe},
+        journal={arXiv preprint arXiv:2407.10973},
+        year={2024}
+      }</code></pre>
+    </div>
+  </section>
+  
+  <br><br><br>
+
+<!-- <footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <br />
+      <p> Template from <a href="https://nerfies.github.io"><span class="dnerf">Nerfies</span></a>.</p>
+    </div>
+  </div>
+</footer> -->
+
+</body>
+</html>
+
+

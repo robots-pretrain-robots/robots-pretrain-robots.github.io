@@ -131,39 +131,40 @@
                 <a href=""
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
-                      <i class="fas fa-file-pdf"></i>
-                  </span>
-                  <span>Paper</span>
-                </a>
-              </span>
-              <span class="link-block">
-                <a href=""
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
                       <i class="ai ai-arxiv"></i>
                   </span>
                   <span>arXiv</span>
                 </a>
               </span>
-              <!-- Video Link. -->
-              <span class="link-block">
-                <a href=""
-                   class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                      <i class="fab fa-youtube"></i>
-                  </span>
-                  <span>Video</span>
-                </a>
-              </span>
               <!-- Code Link. -->
               <span class="link-block">
-                <a href=""
+                <a href="https://github.com/luccachiang/robots-pretrain-robots"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fab fa-github"></i>
                   </span>
                   <span>Code</span>
                   </a>
+                </span>
+                <!-- Dataset Link. -->
+                <span class="link-block">
+                  <a href=""
+                     class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                        <img src="static/images/hf_icon.svg" />
+                    </span>
+                    <span>Models & Dataset</span>
+                    </a>
+                  </span>
+                <span class="link-block">
+                  <a href=""
+                      class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                        <i class="fab fa-twitter"></i>
+                    </span>
+                    <span>Twitter</span>
+                    </a>
+                  </span>
               <!-- </span> -->
               <!-- Dataset Link. -->
               <!-- <span class="link-block">
@@ -182,35 +183,25 @@
     </div>
   </div>
 </section>
-
-
-
-
-<section class="section">
-  <div class="container is-max-desktop">
-    <!-- Abstract. -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
-        <div class="content has-text-justified">
-          <p>The pre-training of visual representations has enhanced the efficiency of robot learning. Due to the lack of large-scale in-domain robotic datasets, prior works utilize in-the-wild human videos to pre-train robotic visual representation. Despite their promising results, representations from human videos are inevitably subject to distribution shifts and lack the dynamics information crucial for task completion. We first evaluate various pre-trained representations in terms of their correlation to the downstream robotic manipulation tasks (i.e., manipulation-centricity). Interestingly, we find that the “manipulation-centricity” is a strong indicator of success rates when applied to downstream tasks. Drawing from these findings, we propose <strong>R</strong>obots <strong>P</strong>re-train robots with <strong>M</strong>anipulation-centricity (<strong>RPM</strong>), a foundation representation learning framework capturing both visual features and the dynamics information such as actions and proprioceptions of manipulation tasks to improve manipulation-centricity. Specifically, we pre-train a visual encoder on the <a href="https://droid-dataset.github.io/">DROID</a> and leverage motion-relevant data such as robot proprioceptive states and actions. We combine a novel contrastive loss that aligns visual observation with robot proprioceptive state-action dynamics with a BC-like actor loss that predicts action during pre-training and a time contrastive loss. Empirical results across 4 simulation domains with 20 tasks verify that our method outperforms the strongest baseline method by <strong>15.6%</strong>. Moreover, our method boosts the performance of data-efficient learning with a UR5e arm on 3 real-world tasks by <strong>76.9%</strong>.</p>
-
-         </div>
-      </div>
-    </div>
     <!--/ Abstract. -->
 
-    <!-- Paper figures. -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Overview</h2>
-        <div class="columns is-centered">
-          <img src="./static/images/overview.png"
-          class="interpolation-image"
-          alt="Overview image."/>
-        </div>
-      </div>
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <div align="center">
+        <img src="./static/images/overview.png" alt="Image description" width="100%">
+      </div>  
+      <br> 
+      <!-- <h2 class="subtitle has-text-centered"> -->
+      <h2 class="subtitle">
+        <!-- Given a scene, our approach (VRB) learns  <strong> actionable representations </strong> for robot learning. VRB predicts contact points and a post-contact trajectory learned from <strong> human videos </strong>.  -->
+        <strong> MPI </strong> is an <strong>interaction-oriented</strong> representation learning pipeline for robotic manipulation. Diverging from prior arts grounded in (a) Contrastive Learning, (b) Masked Signal Modeling, or (c) Video Prediction using random frames, our proposed approach in (d) instructs the model towards predicting transition frames and detecting manipulated objects with keyframes as input. As such, the model fosters better comprehension of “how-to-interact” and “where-to-interact”. MPI acquires more informative representations during pre-training and achieves evident improvement across downstream tasks.
+      </h2>
+      
+    </div>
 
+  </div>
+</section>
     <!-- Paper video. -->
     <!-- <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
@@ -222,22 +213,72 @@
       </div>
     </div> -->
     <!--/ Paper video. -->
-  </div>
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>    The pre-training of visual representations has enhanced the efficiency of robot learning. 
+            Due to the lack of large-scale in-domain robotic datasets, prior works utilize in-the-wild human videos to pre-train robotic visual representation. 
+            Despite their promising results, representations from human videos are inevitably subject to distribution shifts and lack the dynamics information crucial for task completion. 
+            We first evaluate various pre-trained representations in terms of their correlation to the downstream robotic manipulation tasks (i.e., manipulation centricity). 
+            Interestingly, we find that the ''manipulation centricity''' is a strong indicator of success rates when applied to downstream tasks.
+            Drawing from these findings, we propose <strong>M</strong>anipulation <strong>C</strong>entric <strong>R</strong>epresentation (<strong>MCR</strong>), a foundation representation learning framework capturing both visual features and the dynamics information such as actions and proprioceptions of manipulation tasks to improve manipulation centricity. 
+            Specifically, we pre-train a visual encoder on the DROID robotic dataset and leverage motion-relevant data such as robot proprioceptive states and actions. 
+            We introduce a novel contrastive loss that aligns visual observations with the robot's proprioceptive state-action dynamics, combined with an action prediction loss and a time contrastive loss during pre-training.
+            Empirical results across four simulation domains with 20 robotic manipulation tasks demonstrate that \ours~outperforms the strongest baseline by 14.8%. Additionally, <strong>MCR</strong> boosts the success rate in three real-world manipulation tasks by 76.9%. </p>
+
+          </div>
+      </div>
+    </div>
+    </div>
+  </section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column">
+
+        <div class="content">
+          <h2 class="title is-3">Manipulation Centricity of Representations</h2>
+          <p>
+            When using Grad-CAM to analyze the captured features of existing representations, we observe that a representation’s downstream task performance appears to correlate with its ability to capture manipulation-relevant regions.
+          </p> 
+          <p>
+            To quantify this metric, we compute the similarity between the regions highlighted by Grad-CAM and the ground truth regions corresponding to the end-effector and task-relevant objects generated by SAM2.  
+          </p>
+
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-three-fifths has-text-centered">
+            <img src="./static/images/metric_calc.png"
+                 class="interpolation-image"
+                 alt="Interpolate start reference image."/>
+            <p>Measurement of manipulation centricity</p>
+          </div>
+        </div>
+
+        <div class="content">
+          <h3 class="title is-4">Key findings</h3>
+            <p>
+              A strong correlation between manipulation centricity and downstream task performance exists, with a Pearson correlation coefficient of $R=0.93$.
+              </p>
+              <div class="columns is-centered has-text-centered">
+                <div class="column is-three-fifths has-text-centered">
+                  <img src="./static/images/correlation.png"
+                       class="interpolation-image"
+                       alt="Interpolate start reference image."/>
+                  <p>Correlation between Success rate and Manipulation centricity</p>
+                </div>
+        </div>
+
+        </div>
+      </div>
+    </div>
+
 </section>
-
-
-
-<!-- <section class="section" id="BibTeX">
-  <div class="container is-max-desktop content">
-    <h2 class="title">BibTeX</h2>
-    <pre><code>@article{park2021nerfies,
-  author    = {Park, Keunhong and Sinha, Utkarsh and Barron, Jonathan T. and Bouaziz, Sofien and Goldman, Dan B and Seitz, Steven M. and Martin-Brualla, Ricardo},
-  title     = {Nerfies: Deformable Neural Radiance Fields},
-  journal   = {ICCV},
-  year      = {2021},
-}</code></pre>
-  </div>
-</section> -->
 
 
 <footer class="footer">
